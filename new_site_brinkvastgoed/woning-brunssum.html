@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Woning Brunssum | Brink Vastgoed</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Belleza&family=Noto+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #022b62;
+      --blue-dark: #0a0f1e;
+      --gold: #b4975a;
+      --gray: #f3f5f7;
+      --text: #0a0f1e;
+      --muted: #4b5563;
+      --container: 1180px;
+      --radius: 12px;
+      --shadow: 0 18px 50px rgba(2, 43, 98, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Noto Sans', Arial, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
+    .nav {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand img { height: 52px; }
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      font-weight: 600;
+      font-size: 0.95rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a { padding: 8px 10px; border-radius: 8px; }
+    .nav-links a:hover { background: var(--gray); }
+    .cta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    .hero-wrap { background: var(--gray); padding: 40px 24px 10px; }
+    .hero-grid {
+      max-width: var(--container);
+      margin: 0 auto;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: 2fr 1fr;
+    }
+    .hero-main {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-height: 320px;
+      cursor: zoom-in;
+    }
+    .hero-main img { width: 100%; height: 100%; object-fit: cover; }
+    .badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--blue);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .hero-side {
+      display: grid;
+      gap: 10px;
+      grid-template-rows: 1fr 1fr;
+    }
+    .hero-img {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      min-height: 150px;
+      cursor: zoom-in;
+    }
+    .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(2, 43, 98, 0.55);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+    .detail-header {
+      background: #fff;
+      border-bottom: 1px solid #e8ecf0;
+    }
+    .detail-inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 28px 24px 12px;
+    }
+    .detail-top {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      align-items: baseline;
+    }
+    .breadcrumb { font-size: 0.95rem; color: var(--muted); }
+    h1 { margin: 8px 0 0; font-family: 'Belleza', 'Noto Sans', sans-serif; font-size: clamp(2rem, 3vw, 2.6rem); }
+    .price { font-size: 1.3rem; font-weight: 700; color: var(--blue); margin-top: 6px; }
+    .anchors {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .anchors a {
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #e8ecf0;
+      color: var(--muted);
+      font-weight: 600;
+      background: #fff;
+    }
+    .anchors a:hover { color: var(--blue); border-color: var(--blue); }
+    main section { padding: 60px 24px; }
+    .section-inner { max-width: var(--container); margin: 0 auto; }
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      align-items: start;
+    }
+    .card {
+      padding: 22px;
+      background: #fff;
+      border-radius: var(--radius);
+      border: 1px solid #e8ecf0;
+      box-shadow: 0 10px 30px rgba(2, 43, 98, 0.06);
+    }
+    .pill {
+      display: inline-flex;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(2, 43, 98, 0.08);
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+    }
+    .muted { color: var(--muted); }
+    .highlights {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+    .highlight {
+      padding: 16px;
+      border-radius: var(--radius);
+      border: 1px solid #e8ecf0;
+      background: #fff;
+      box-shadow: 0 10px 24px rgba(2, 43, 98, 0.05);
+    }
+    .highlight .label { font-weight: 700; color: var(--blue); }
+    .feature-list h3 { margin: 24px 0 10px; }
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid #e8ecf0;
+    }
+    .gallery-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      min-height: 180px;
+      cursor: zoom-in;
+    }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+    .map-box {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      height: 420px;
+    }
+    .map-frame {
+      border: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      inset: 0;
+    }
+    .map-card {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(255,255,255,0.92);
+      color: var(--text);
+      padding: 14px 16px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      max-width: 280px;
+      display: grid;
+      gap: 8px;
+    }
+    .map-controls {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: grid;
+      gap: 8px;
+    }
+    .map-controls button {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      background: #fff;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .map-controls button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+    }
+    .footer-cta {
+      background: var(--gray);
+      border-radius: var(--radius);
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.04);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 18px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #0a0f1e;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(2, 43, 98, 0.2); }
+    footer {
+      background: #0b1425;
+      color: #e1e5ec;
+    }
+    .footer-top {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 60px 24px 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 16px 24px;
+      max-width: var(--container);
+      margin: 0 auto;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: #b8c0d0;
+    }
+    .footer-top h4 { color: #fff; margin-bottom: 10px; }
+    .footer-top a { color: #e1e5ec; }
+    .footer-top ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+    .social-links { display: flex; gap: 12px; margin-top: 8px; }
+    .social-links a {
+      width: 36px; height: 36px;
+      display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 50%; border: 1px solid rgba(255,255,255,0.2);
+      color: #fff; background: rgba(255,255,255,0.06);
+    }
+    .social-links a:hover { background: rgba(255,255,255,0.15); }
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 15, 30, 0.75);
+      backdrop-filter: blur(2px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 999;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: min(1080px, 92vw);
+      max-height: 88vh;
+      border-radius: 14px;
+      box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+    }
+    .lightbox button {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: rgba(255,255,255,0.14);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      font-size: 20px;
+      display: grid;
+      place-items: center;
+      transition: background 0.2s ease;
+    }
+    .lightbox button:hover { background: rgba(255,255,255,0.22); }
+    .lightbox .caption {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      color: #fff;
+      font-weight: 600;
+      text-shadow: 0 6px 16px rgba(0,0,0,0.5);
+      max-width: 70vw;
+    }
+    .lightbox .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.18);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      font-size: 22px;
+      display: grid;
+      place-items: center;
+      transition: background 0.2s ease;
+    }
+    .lightbox .nav-btn:hover { background: rgba(255,255,255,0.26); }
+    .lightbox .nav-btn.prev { left: 18px; }
+    .lightbox .nav-btn.next { right: 18px; }
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .anchors { gap: 6px; }
+      .feature-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html">
+        <img src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2022/03/Vastgoed-small.svg" alt="Brink Vastgoed">
+      </a>
+      <nav class="nav-links" aria-label="Hoofdmenu">
+        <a href="index.html#diensten">Diensten</a>
+        <a href="index.html#aanbod">Aanbod</a>
+        <a href="index.html#over">Over ons</a>
+        <a href="index.html#contact">Contact</a>
+        <a class="cta-pill" href="tel:+31850640858">
+          <span>Bel ons</span>
+          <strong>+31 85 0640 858</strong>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero-wrap">
+    <div class="hero-grid">
+      <div class="hero-main">
+        <img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/03voor.jpg" alt="Vooraanzicht Brunssum">
+        <span class="badge">Te koop</span>
+      </div>
+      <div class="hero-side">
+        <div class="hero-img">
+          <img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/18tuin.jpg" alt="Tuin Brunssum">
+        </div>
+        <div class="hero-img">
+          <img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/07woonkamer.jpg" alt="Woonkamer Brunssum">
+          <a class="hero-overlay" href="#media">+ meer foto's</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-header">
+    <div class="detail-inner">
+      <div class="breadcrumb">Home / Woning / Brunssum</div>
+      <div class="detail-top">
+        <div>
+          <h1>Klingbemden 57, 6441 KV, Brunssum</h1>
+          <div class="price">€ 439.000,- k.k.</div>
+        </div>
+        <a class="cta-pill" href="#contact">Plan een bezichtiging</a>
+      </div>
+      <div class="anchors">
+        <a href="#omschrijving">Omschrijving</a>
+        <a href="#kenmerken">Kenmerken</a>
+        <a href="#media">Media</a>
+        <a href="#kaart">Kaart</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <section id="omschrijving">
+      <div class="section-inner two-col">
+        <div>
+          <div class="pill">Omschrijving</div>
+          <h2>Unieke kans in Brunssum</h2>
+          <p class="muted">Ruimte, comfort en mogelijkheden op toplocatie.</p>
+          <p>Ontdek deze royale <strong>twee-onder-een-kapwoning</strong> met 3 woonlagen, een <strong>kelder</strong> en <strong>garage met carport</strong>. Er is zelfs ruimte voor een camper of caravan. Met een woonoppervlak van <strong>207,40 m²</strong> (gecorrigeerd 167,64 m²) op een perceel van 536 m² is dit de ideale gezinswoning.</p>
+          <p><strong>Wat maakt deze woning bijzonder?</strong></p>
+          <ul>
+            <li>3 ruime woonlagen – ideaal voor gezinnen, thuiswerken of hobby’s</li>
+            <li>Kelder – handige opslag of hobbyruimte</li>
+            <li>Garage + carport – verwarmde garage en beschut parkeren</li>
+            <li>Ruime achtertuin – zon, spelen en samen genieten</li>
+            <li>Veel lichtinval – royale ramen en prettige indeling</li>
+          </ul>
+          <p>De woning ligt in een rustige, kindvriendelijke, geliefde woonwijk in Brunssum, omringd door groen en speelgelegenheid. Basisscholen, kinderopvang en buurtwinkels zijn op loopafstand; het centrum en de Brunssummerheide liggen op korte fietsafstand. Uitvalswegen richting Heerlen, Sittard en Duitsland zijn uitstekend bereikbaar.</p>
+          <p><strong>De perfecte combinatie voor wie houdt van ruimte, rust en gemak!</strong></p>
+        </div>
+        <aside class="card" id="contact">
+          <h3 style="margin:0 0 8px;">Contact</h3>
+          <p class="muted" style="margin:0 0 12px;">Brink Vastgoed | Bezichtiging plannen of vragen? Neem direct contact op.</p>
+          <p style="margin:0 0 8px;"><a href="tel:+31850640858" class="cta-pill">Bel +31 85 0640 858</a></p>
+          <p style="margin:0 0 12px;"><a href="mailto:info@brinkvastgoed.nl" class="cta-pill" style="background: var(--gold); color: var(--blue-dark);">Mail info@brinkvastgoed.nl</a></p>
+          <p class="muted" style="margin:0 0 12px;">Plan een bezichtiging of vraag de brochure op.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="highlights" style="background: var(--gray);">
+      <div class="section-inner">
+        <div class="pill">Hoogtepunten</div>
+        <h2>Kengetallen in één oogopslag</h2>
+        <div class="highlights">
+          <div class="highlight">
+            <div class="label">Wonen</div>
+            <div>150,6 m² netto</div>
+          </div>
+          <div class="highlight">
+            <div class="label">Overig inpandig</div>
+            <div>56,8 m²</div>
+          </div>
+          <div class="highlight">
+            <div class="label">Perceel</div>
+            <div>536 m²</div>
+          </div>
+          <div class="highlight">
+            <div class="label">Kamers</div>
+            <div>5</div>
+          </div>
+          <div class="highlight">
+            <div class="label">Slaapkamers</div>
+            <div>3 (mogelijke uitbreiding zolder)</div>
+          </div>
+          <div class="highlight">
+            <div class="label">Badkamers</div>
+            <div>1</div>
+          </div>
+          <div class="highlight">
+            <div class="label">Bouwjaar</div>
+            <div>1979</div>
+          </div>
+          <div class="highlight">
+            <div class="label">Energielabel</div>
+            <div>C</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kenmerken">
+      <div class="section-inner">
+        <div class="pill">Kenmerken</div>
+        <h2>Alle details</h2>
+        <div class="feature-list">
+          <h3>Algemeen</h3>
+          <div class="feature-row"><span>Vraagprijs</span><span>€ 439.000,- k.k.</span></div>
+          <div class="feature-row"><span>Bouwjaar</span><span>1979</span></div>
+          <div class="feature-row"><span>Status</span><span>Beschikbaar</span></div>
+          <div class="feature-row"><span>Aanvaarding</span><span>In overleg</span></div>
+          <div class="feature-row"><span>Type</span><span>Woonhuis | vrijstaand</span></div>
+
+          <h3>Oppervlakten en inhoud</h3>
+          <div class="feature-row"><span>Wonen</span><span>150,6 m² netto</span></div>
+          <div class="feature-row"><span>Overig inpandig</span><span>56,8 m²</span></div>
+          <div class="feature-row"><span>Perceel</span><span>536 m²</span></div>
+          <div class="feature-row"><span>Inhoud</span><span>circa 614 m³</span></div>
+
+          <h3>Indeling</h3>
+          <div class="feature-row"><span>Kamers</span><span>5</span></div>
+          <div class="feature-row"><span>Slaapkamers</span><span>3 + potentieel zolder</span></div>
+          <div class="feature-row"><span>Badkamers</span><span>1</span></div>
+
+          <h3>Duurzaamheid</h3>
+          <div class="feature-row"><span>Energielabel</span><span>C</span></div>
+          <div class="feature-row"><span>Isolatie</span><span>HR++ dubbel glas, deels enkel; spouw- en dakisolatie</span></div>
+          <div class="feature-row"><span>Verwarming</span><span>HR combi-ketel (2018, huur)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="media" style="background: var(--gray);">
+      <div class="section-inner">
+        <div class="pill">Media</div>
+        <h2>Bekijk de woning</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/01voor.jpg" alt="Vooraanzicht"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/03voor.jpg" alt="Vooraanzicht detail"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/04voor.jpg" alt="Vooraanzicht zijaanzicht"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/15tuin.jpg" alt="Tuin voorzijde"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/17tuin.jpg" alt="Tuin met terras"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/18tuin.jpg" alt="Tuin overzicht"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/07woonkamer.jpg" alt="Woonkamer overzicht"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/08woonkamer.jpg" alt="Woonkamer zithoek"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/10woonkamer.jpg" alt="Woonkamer eetgedeelte"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/11woonkamer.jpg" alt="Woonkamer uitzicht"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/12keuken.jpg" alt="Keuken overzicht"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/13keuken.jpg" alt="Keuken detail"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/1920haltoilet.jpg" alt="Hal en toilet"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/23badkamer-1024x683.jpg" alt="Badkamer overzicht"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/2425badkamer.jpg" alt="Badkamer douche"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/26slaapkamer.jpg" alt="Slaapkamer 1"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/28slaapkamer.jpg" alt="Slaapkamer 2"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/29zolder.jpg" alt="Zolderruimte"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/32kelder.jpg" alt="Kelder"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/33garage.jpg" alt="Garage"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/34speeltuin.jpg" alt="Speeltuin in de buurt"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/35drone-omlijnd.jpg" alt="Drone overzicht kavel"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/36garage-1024x683.jpg" alt="Garage en oprit"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/37garage.jpg" alt="Garage binnenzijde"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/Klingbemden-57-Brunssum-Begane-grond.jpg" alt="Plattegrond begane grond"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/Klingbemden-57-Brunssum-1e-verdieping.jpg" alt="Plattegrond 1e verdieping"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/Klingbemden-57-Brunssum-Zolder.jpg" alt="Plattegrond zolder"></div>
+          <div class="gallery-item"><img class="lightbox-trigger" loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2025/08/Klingbemden-57-Brunssum-Kelder.jpg" alt="Plattegrond kelder"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kaart">
+      <div class="section-inner">
+        <div class="pill">Kaart</div>
+        <h2>Bekijk de locatie</h2>
+        <div class="map-box">
+          <iframe class="map-frame" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?hl=nl&q=Klingbemden%2057%206441%20KV%20Brunssum&t=&z=16&ie=UTF8&iwloc=near&output=embed"></iframe>
+          <div class="map-card">
+            <div style="font-weight:700;">Klingbemden 57</div>
+            <div class="muted" style="font-size:0.95rem;">6441 KV, Brunssum</div>
+            <a class="btn" style="justify-content:flex-start;" href="https://www.google.com/maps/search/?api=1&query=Klingbemden+57+Brunssum" target="_blank" rel="noopener">Open in Google Maps</a>
+          </div>
+          <div class="map-controls" aria-label="Kaart zoom bediening">
+            <button type="button" data-zoom="in" aria-label="Inzoomen">+</button>
+            <button type="button" data-zoom="out" aria-label="Uitzoomen">−</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-inner footer-cta">
+        <h3 style="margin:0 0 10px;">Niet gevonden wat u zocht?</h3>
+        <p class="muted" style="margin:0 0 16px;">Schrijf u in als zoeker en blijf op de hoogte van nieuw aanbod en stille verkoop.</p>
+        <a class="btn" href="mailto:info@brinkvastgoed.nl?subject=Inschrijven%20zoekopdracht">Schrijf u in als zoeker</a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="footer-top">
+      <div>
+        <img loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2022/03/Vastgoed-small.svg" alt="Brink Vastgoed" style="height:46px; margin-bottom:12px;">
+        <p style="max-width:280px; color:#cdd4e0;">Full service advieskantoor voor makelaardij, verzekeringen en hypotheken. Een persoonlijke, betrokken aanpak met oog voor de lange termijn.</p>
+        <p style="color:#cdd4e0; margin:10px 0 0;"><strong style="color:#fff;">Volg ons op</strong></p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/brinkvastgoed/" aria-label="Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 9H16l.5-3h-3V4.5C13.5 3.6 14 3 15.3 3H16.5V0h-2.4C11.6 0 10 1.6 10 4.2V6H7v3h3v9h3.5V9Z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/brinkvastgoed/" aria-label="Instagram">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 7.3A4.7 4.7 0 1 0 16.7 12 4.71 4.71 0 0 0 12 7.3Zm0 7.7A3 3 0 1 1 15 12a3 3 0 0 1-3 3Zm4.9-8.5a1.1 1.1 0 1 1-1.1-1.1 1.1 1.1 0 0 1 1.1 1.1Zm2 1.1c-.1-1.4-.4-2.6-1.5-3.7S15.9 2.9 14.5 2.8c-1.5-.1-6-.1-7.5 0-1.4.1-2.6.4-3.7 1.5S1.9 6.6 1.8 8c-.1 1.5-.1 6 0 7.5.1 1.4.4 2.6 1.5 3.7s2.3 1.4 3.7 1.5c1.5.1 6 .1 7.5 0 1.4-.1 2.6-.4 3.7-1.5s1.4-2.3 1.5-3.7c.1-1.5.1-6 0-7.5Zm-2 9.1a3.26 3.26 0 0 1-1.8 1.8c-1.3.5-4.5.4-5.9.4s-4.6.1-5.9-.4a3.26 3.26 0 0 1-1.8-1.8c-.5-1.3-.4-4.5-.4-5.9s-.1-4.6.4-5.9a3.26 3.26 0 0 1 1.8-1.8c1.3-.5 4.5-.4 5.9-.4s4.6-.1 5.9.4a3.26 3.26 0 0 1 1.8 1.8c.5 1.3.4 4.5.4 5.9s.1 4.6-.4 5.9Z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Financieel advies nodig?</h4>
+        <div style="display:flex; align-items:center; gap:10px; padding:8px 0;">
+          <img loading="lazy" src="../scraped_site_brinkvastgoed.nl/assets/wp-content/uploads/2022/05/logo-wit.svg" alt="Brink Advies Groep" style="height:42px;">
+          <span style="color:#cdd4e0;">Brink Advies Groep</span>
+        </div>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@brinkvastgoed.nl">info@brinkvastgoed.nl</a></li>
+          <li><a href="tel:+31850640858">+31 850640858</a></li>
+          <li>KvK 14617278</li>
+          <li>BTW NL001909265B01</li>
+          <li>Kaalheidersteenweg 6<br>6467AA Kerkrade</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Quicklinks</h4>
+        <ul>
+          <li><a href="#omschrijving">Omschrijving</a></li>
+          <li><a href="#kenmerken">Kenmerken</a></li>
+          <li><a href="#media">Media</a></li>
+          <li><a href="#kaart">Kaart</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Vastgoed</h4>
+        <ul>
+          <li><a href="index.html#aanbod">Te koop</a></li>
+          <li><a href="index.html#aanbod">Te huur</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Brink Vastgoed</span>
+      <span>Betrouwbaar • Persoonlijk • Full service</span>
+    </div>
+  </footer>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="Foto viewer">
+    <button type="button" aria-label="Vorige foto" class="nav-btn prev">&#8249;</button>
+    <button type="button" aria-label="Volgende foto" class="nav-btn next">&#8250;</button>
+    <button type="button" aria-label="Sluiten">&times;</button>
+    <img src="" alt="">
+    <div class="caption"></div>
+  </div>
+
+  <script>
+    (function() {
+      const lightbox = document.querySelector('.lightbox');
+      const imgEl = lightbox.querySelector('img');
+      const captionEl = lightbox.querySelector('.caption');
+      const closeBtn = lightbox.querySelector('button[aria-label=\"Sluiten\"]');
+      const prevBtn = lightbox.querySelector('.nav-btn.prev');
+      const nextBtn = lightbox.querySelector('.nav-btn.next');
+      const triggers = Array.from(document.querySelectorAll('.lightbox-trigger'));
+      const mapFrame = document.querySelector('.map-frame');
+      const mapButtons = document.querySelectorAll('.map-controls button');
+      const mapBaseUrl = 'https://maps.google.com/maps?hl=nl&q=Klingbemden%2057%206441%20KV%20Brunssum&t=&ie=UTF8&iwloc=near&output=embed';
+      let mapZoom = 16;
+      let currentIndex = 0;
+
+      function showIndex(index) {
+        if (!triggers.length) return;
+        const total = triggers.length;
+        currentIndex = (index + total) % total;
+        const el = triggers[currentIndex];
+        imgEl.src = el.src;
+        imgEl.alt = el.alt || 'Foto';
+        captionEl.textContent = el.alt || '';
+        lightbox.classList.add('open');
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        imgEl.src = '';
+        captionEl.textContent = '';
+      }
+
+      triggers.forEach((el, idx) => {
+        el.addEventListener('click', () => showIndex(idx));
+        el.setAttribute('tabindex', '0');
+        el.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            showIndex(idx);
+          }
+        });
+      });
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      closeBtn.addEventListener('click', closeLightbox);
+      prevBtn.addEventListener('click', () => showIndex(currentIndex - 1));
+      nextBtn.addEventListener('click', () => showIndex(currentIndex + 1));
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showIndex(currentIndex + 1);
+        if (e.key === 'ArrowLeft') showIndex(currentIndex - 1);
+      });
+
+      function updateMapZoom(delta) {
+        mapZoom = Math.max(10, Math.min(20, mapZoom + delta));
+        mapFrame.src = mapBaseUrl + '&z=' + mapZoom;
+      }
+      mapButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const dir = btn.dataset.zoom === 'in' ? 1 : -1;
+          updateMapZoom(dir);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -456,7 +456,7 @@
           <h2>Unieke kans in Brunssum</h2>
           <p class="muted">Ruimte, comfort en mogelijkheden op toplocatie.</p>
           <p>Ontdek deze royale <strong>twee-onder-een-kapwoning</strong> met 3 woonlagen, een <strong>kelder</strong> en <strong>garage met carport</strong>. Er is zelfs ruimte voor een camper of caravan. Met een woonoppervlak van <strong>207,40 m²</strong> (gecorrigeerd 167,64 m²) op een perceel van 536 m² is dit de ideale gezinswoning.</p>
-          <p><strong>Wat maakt deze woning bijzonder-</strong></p>
+          <p><strong>Wat maakt deze woning bijzonder?</strong></p>
           <ul>
             <li>3 ruime woonlagen - ideaal voor gezinnen, thuiswerken of hobby's</li>
             <li>Kelder - handige opslag of hobbyruimte</li>
@@ -595,11 +595,11 @@
           <div class="map-card">
             <div style="font-weight:700;">Klingbemden 57</div>
             <div class="muted" style="font-size:0.95rem;">6441 KV, Brunssum</div>
-            <a class="btn" style="justify-content:flex-start;" href="https://www.google.com/maps/search/-api=1&query=Klingbemden+57+Brunssum" target="_blank" rel="noopener">Open in Google Maps</a>
+            <a class="btn" style="justify-content:flex-start;" href="https://www.google.com/maps/search/?api=1&query=Klingbemden+57+Brunssum" target="_blank" rel="noopener">Open in Google Maps</a>
           </div>
           <div class="map-controls" aria-label="Kaart zoom bediening">
             <button type="button" data-zoom="in" aria-label="Inzoomen">+</button>
-            <button type="button" data-zoom="out" aria-label="Uitzoomen">'</button>
+            <button type="button" data-zoom="out" aria-label="Uitzoomen">-</button>
           </div>
         </div>
       </div>
@@ -739,7 +739,7 @@
       }
       mapButtons.forEach((btn) => {
         btn.addEventListener('click', () => {
-          const dir = btn.dataset.zoom === 'in' - 1 : -1;
+          const dir = btn.dataset.zoom === 'in' ? 1 : -1;
           updateMapZoom(dir);
         });
       });

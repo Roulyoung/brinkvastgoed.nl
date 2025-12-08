@@ -1,0 +1,62 @@
+{
+  "http://brinkvastgoed.nl/": {
+    "file": "pages\\index.html"
+  },
+  "https://brinkvastgoed.nl/welkom/": {
+    "file": "pages\\welkom\\index.html"
+  },
+  "https://brinkvastgoed.nl/te-koop/": {
+    "file": "pages\\te-koop\\index.html"
+  },
+  "https://brinkvastgoed.nl/te-huur/": {
+    "file": "pages\\te-huur\\index.html"
+  },
+  "https://brinkvastgoed.nl/commercieel-vastgoed/": {
+    "file": "pages\\commercieel-vastgoed\\index.html"
+  },
+  "https://brinkvastgoed.nl/beleggingspanden/": {
+    "file": "pages\\beleggingspanden\\index.html"
+  },
+  "https://brinkvastgoed.nl/vastgoed-exclusief/": {
+    "file": "pages\\vastgoed-exclusief\\index.html"
+  },
+  "https://brinkvastgoed.nl/aankoopbegeleiding/": {
+    "file": "pages\\aankoopbegeleiding\\index.html"
+  },
+  "https://brinkvastgoed.nl/contact/": {
+    "file": "pages\\contact\\index.html"
+  },
+  "http://brinkvastgoed.nl/vastgoed-exclusief/": {
+    "file": "pages\\vastgoed-exclusief\\index.html"
+  },
+  "https://brinkvastgoed.nl/": {
+    "file": "pages\\index.html"
+  },
+  "http://brinkvastgoed.nl/vastgoed-exclusief": {
+    "file": "pages\\vastgoed-exclusief\\index.html"
+  },
+  "http://brinkvastgoed.nl/cookiebeleid/": {
+    "file": "pages\\cookiebeleid\\index.html"
+  },
+  "http://brinkvastgoed.nl/privacyverklaring/": {
+    "file": "pages\\privacyverklaring\\index.html"
+  },
+  "https://brinkvastgoed.nl/woning-geleen/": {
+    "file": "pages\\woning-geleen\\index.html"
+  },
+  "https://brinkvastgoed.nl/woning-rotterdam/": {
+    "file": "pages\\woning-rotterdam\\index.html"
+  },
+  "https://brinkvastgoed.nl/woning-brunssum/": {
+    "file": "pages\\woning-brunssum\\index.html"
+  },
+  "http://brinkvastgoed.nl/privacyverklaring-eu/": {
+    "file": "pages\\privacyverklaring-eu\\index.html"
+  },
+  "https://brinkvastgoed.nl": {
+    "file": "pages\\index.html"
+  },
+  "https://brinkvastgoed.nl/cookiebeleid/": {
+    "file": "pages\\cookiebeleid\\index.html"
+  }
+}

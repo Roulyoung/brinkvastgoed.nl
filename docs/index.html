@@ -285,6 +285,68 @@
       color: #fff; background: rgba(255,255,255,0.06);
     }
     .social-links a:hover { background: rgba(255,255,255,0.15); }
+    .choice-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 15, 30, 0.6);
+      backdrop-filter: blur(2px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 999;
+    }
+    .choice-modal.open { display: flex; }
+    .choice-card {
+      background: #fff;
+      color: var(--text);
+      border-radius: 14px;
+      padding: 28px;
+      max-width: 480px;
+      width: min(90vw, 520px);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 16px;
+      text-align: center;
+      position: relative;
+    }
+    .choice-card h3 { margin: 0; font-size: 1.3rem; }
+    .choice-card p { margin: 0; color: var(--muted); }
+    .choice-actions {
+      display: grid;
+      gap: 12px;
+      margin-top: 6px;
+    }
+    .choice-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+    .choice-actions a:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.12); }
+    .choice-actions .primary {
+      background: var(--blue);
+      color: #fff;
+    }
+    .choice-actions .secondary {
+      background: #fff;
+      color: var(--blue);
+      border-color: var(--blue);
+    }
+    .choice-close {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: transparent;
+      border: none;
+      font-size: 22px;
+      cursor: pointer;
+      color: var(--muted);
+    }
     @media (max-width: 768px) {
       .nav { flex-wrap: wrap; }
       .nav-links { width: 100%; justify-content: flex-start; flex-wrap: wrap; }
@@ -293,6 +355,18 @@
   </style>
 </head>
 <body>
+  <div class="choice-modal" role="dialog" aria-modal="true" aria-label="Kies uw richting">
+    <div class="choice-card">
+      <button class="choice-close" aria-label="Sluiten">&times;</button>
+      <h3>Bent u op zoek naar een makelaar of naar een hypotheek, verzekering of advies?</h3>
+      <p>Kies uw route zodat we u direct naar de juiste informatie brengen.</p>
+      <div class="choice-actions">
+        <a class="primary" href="#aanbod">Ik zoek een makelaar (Brink Vastgoed)</a>
+        <a class="secondary" href="mailto:info@brinkvastgoed.nl?subject=Hypotheek%2Fverzekering%20of%20advies">Hypotheek / Verzekering / Advies</a>
+      </div>
+    </div>
+  </div>
+
   <header>
     <div class="nav">
       <a class="brand" href="index.html">
@@ -506,6 +580,34 @@
       <span>Betrouwbaar · Persoonlijk · Full service</span>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      const modal = document.querySelector('.choice-modal');
+      const closeBtn = modal.querySelector('.choice-close');
+      const primary = modal.querySelector('.primary');
+      const secondary = modal.querySelector('.secondary');
+
+      function openModal() {
+        modal.classList.add('open');
+        primary.focus();
+      }
+      function closeModal() {
+        modal.classList.remove('open');
+      }
+
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      });
+
+      // open once on page load
+      openModal();
+    })();
+  </script>
 </body>
 </html>
 

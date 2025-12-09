@@ -362,7 +362,7 @@
       <p>Kies uw route zodat we u direct naar de juiste informatie brengen.</p>
       <div class="choice-actions">
         <a class="primary" href="#aanbod">Ik zoek een makelaar (Brink Vastgoed)</a>
-        <a class="secondary" href="mailto:info@brinkvastgoed.nl?subject=Hypotheek%2Fverzekering%20of%20advies">Hypotheek / Verzekering / Advies</a>
+        <a class="secondary" href="mailto:info@brinkvastgoed.nl?subject=Hypotheek%2Fverzekering%20of%20advies">Hypotheek / Verzekering / Advies (Brink Adviesgroep)</a>
       </div>
     </div>
   </div>
@@ -588,8 +588,11 @@
       const primary = modal.querySelector('.primary');
       const secondary = modal.querySelector('.secondary');
 
+      const seenKey = 'brink_choice_seen';
+
       function openModal() {
         modal.classList.add('open');
+        sessionStorage.setItem(seenKey, '1');
         primary.focus();
       }
       function closeModal() {
@@ -597,6 +600,7 @@
       }
 
       closeBtn.addEventListener('click', closeModal);
+      primary.addEventListener('click', closeModal);
       modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModal();
       });
@@ -604,8 +608,10 @@
         if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
       });
 
-      // open once on page load
-      openModal();
+      // open once per session
+      if (!sessionStorage.getItem(seenKey)) {
+        openModal();
+      }
     })();
   </script>
 </body>
